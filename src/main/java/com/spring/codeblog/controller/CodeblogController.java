@@ -50,7 +50,6 @@ public class CodeblogController {
            attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos!");
             return "redirect:/newpost";
        }
-       post.setData(LocalDate.now());
        codeblogService.save(post);
        return "redirect:/posts";
     }

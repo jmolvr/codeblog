@@ -1,6 +1,8 @@
 package com.spring.codeblog.service.ServiceImpl;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import com.spring.codeblog.model.Post;
 import com.spring.codeblog.repository.CodeBlogRepository;
@@ -27,7 +29,13 @@ public class CodeblogServiceImpl implements CodeblogService {
     }
 
     @Override
+    public Optional<Post> findByIdOptional(final Long id){
+        return codeBlogRepository.findById(id);
+    }
+
+    @Override
     public Post save(final Post post) {
+        post.setData(LocalDate.now());
         return codeBlogRepository.save(post);
     }
     
